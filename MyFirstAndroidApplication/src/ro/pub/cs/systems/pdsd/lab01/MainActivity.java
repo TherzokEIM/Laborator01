@@ -24,6 +24,15 @@ public class MainActivity extends Activity {
 			EditText userNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
 			TextView greetingTextView = (TextView)findViewById(R.id.greeting_text_view);
 			greetingTextView.setAlpha(1);
+
+			String text = greetingTextView.getText().toString();
+			text = text.replace("xxx", "\n" + userNameEditText.getText());
+			greetingTextView.setText(text);
+
+			AlphaAnimation fadeEffect = new AlphaAnimation(1.0f, 0.0f);
+			fadeEffect.setDuration(TRANSPARENCY_EFFECT_DURATION);
+			fadeEffect.setFillAfter(true);
+			greetingTextView.setAnimation(fadeEffect);
 		}
 		
 	}
